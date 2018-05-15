@@ -1,0 +1,21 @@
+@import "~weui/src/style/base/fn";
+@import "./variables";
+
+.mint-cell {
+  position: relative; //这个是为了兼容cells容器onepx方案被before挡住而做的
+  &:before {
+    .setTopLine(@weuiCellBorderColor);
+    left: @weuiCellGapH;
+    z-index: 2;
+  }
+  &:first-child {
+    &:before {
+      display: none;
+    }
+  }
+}
+
+.mint-button--primary {
+  background-color: @theme-color;
+  background: @theme-gradient;
+}
