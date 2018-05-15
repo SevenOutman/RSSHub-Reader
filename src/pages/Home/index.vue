@@ -1,8 +1,7 @@
 <template>
   <div class="home">
     <cell-group title="收藏">
-      <mt-cell title="Bilibili" is-link to="/bilibili" />
-      <mt-cell title="Bilibili" is-link to="/bilibili" />
+      <mt-cell v-for="favorite of favorites" :key="favorite.rss" :title="favorite.title" is-link :to="favorite.path" />
     </cell-group>
     <cell-group title="全部">
       <mt-cell title="Bilibili" is-link to="/bilibili" />
@@ -19,11 +18,12 @@
   export default {
     name: 'Home',
     components: { Cell, CellGroup },
+    computed: {
+      favorites() {
+        return this.$store.state.favorites
+      }
+    },
     created() {
-      axios('/bilibili/user/coin/2267573?filter=微小微|赤九玖|暴走大事件')
-        .then(async ({ data }) => {
-          console.log(await parse(data))
-        })
     }
   }
 </script>

@@ -8,6 +8,7 @@ import iNoBounce from 'inobounce'
 import App from './App'
 import router from './router'
 import './styles/index.less'
+import store from './store'
 
 Vue.config.productionTip = false
 
@@ -20,6 +21,7 @@ axios.defaults.headers.common.Accept = 'application/xml'
 new Vue({
   el: '#app',
   router,
+  store,
   template: '<App/>',
   components: { App }
 })

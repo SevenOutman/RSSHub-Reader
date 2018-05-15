@@ -25,7 +25,6 @@
     },
     watch: {
       $route(to, from) {
-        console.log(to, from)
         if (to.path === '/') this.transitionName = 'slide-right'
         else if (from.path === '/') this.transitionName = 'slide-left'
         else {
@@ -86,6 +85,7 @@
   }
 
   .page {
+    padding-top: 15px;
     background-color: #fff;
     width: 100%;
     min-height: 100%;

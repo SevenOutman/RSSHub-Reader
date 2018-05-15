@@ -4,24 +4,26 @@
       <h2>{{ result.title }}</h2>
       <!--<p>{{result.description.replace(' - 使用 RSSHub(https://github.com/DIYgod/RSSHub) 构建', '')}}</p>-->
       <div class="bangumi-episodes">
-        <div class="bangumi-episode" v-for="episode of result.items" :key="episode.guid"
-             v-html="episode.content.replace(episode.contentSnippet, '') + episode.title">
-        </div>
+        <a :href="episode.link" target="_blank" rel="noopener noreferrer" class="bangumi-episode" v-for="episode of result.items" :key="episode.guid"
+           v-html="episode.content.replace(episode.contentSnippet, '') + episode.title">
+        </a>
       </div>
     </div>
     <cell-group title="查询番剧" v-if="!$route.params.seasonid">
-      <mt-field label="番剧ID" placeholder="可在番剧主页URL中找到" v-model="seasonid"></mt-field>
+      <mt-field label="番剧ID" placeholder="可在番剧主页URL中找到" v-model="form.seasonid"></mt-field>
     </cell-group>
     <button-group>
-      <mt-button type="default" size="large" @click="fetchRSS">立即查询</mt-button>
-      <mt-button type="primary" size="large">加入收藏</mt-button>
+      <mt-button type="default" size="large" @click="fetchRSS" :disabled="!seasonid">立即查询</mt-button>
+      <mt-button type="primary" size="large" v-if="!isFavorite" :disabled="!seasonid" @click="addToFavorites">加入收藏
+      </mt-button>
+      <mt-button type="danger" size="large" v-else :disabled="!seasonid" @click="removeFromFavorites">取消收藏</mt-button>
     </button-group>
   </div>
 </template>
 
 <script>
   import axios from 'axios'
-  import { Indicator } from 'mint-ui'
+  import { Indicator, Toast } from 'mint-ui'
   import CellGroup from '@/components/weui/cell-group'
   import ButtonGroup from '@/components/button-group'
   import parse from '@/utils/parseRss'
@@ -31,20 +33,63 @@
     components: { ButtonGroup, CellGroup },
     data() {
       return {
-        seasonid: this.$route.query.seasonid || '',
+        form: {
+          seasonid: this.$route.query.seasonid || '',
+        },
 
         result: null,
         popupVisible: false
       }
     },
+    computed: {
+      seasonid() {
+        return this.$route.params.seasonid || this.form.seasonid
+      },
+      rssPath() {
+        return `/bilibili/bangumi/${this.seasonid}`
+      },
+      isFavorite() {
+        return !!this.$store.state.favorites.find(({ rss }) => rss === this.rssPath)
+      }
+    },
     methods: {
-      fetchRSS() {
+      async fetchRSS() {
         Indicator.open()
-        return axios(`/bilibili/bangumi/${this.seasonid}`)
+        return axios(this.rssPath)
+          .catch(() => Indicator.close())
           .then(async ({ data }) => {
             this.result = await parse(data)
             Indicator.close()
           })
+      },
+      async addToFavorites() {
+        let title
+        if (!this.result) {
+          await this.fetchRSS()
+        }
+        title = `Bilibili番剧 ${this.result.title}`
+        this.$store.commit('addFavorite', {
+          title,
+          path: this.rssPath,
+          rss: this.rssPath,
+          autoUpdate: true
+        })
+        Toast({
+          message: '收藏好了~',
+          duration: 1500
+        })
+      },
+      removeFromFavorites() {
+        this.$store.commit('removeFavorite', this.rssPath)
+        Toast({
+          message: '已取消收藏',
+          duration: 1500
+        })
+      }
+    },
+    created() {
+      if (this.$route.params.seasonid) {
+        this.fetchRSS()
       }
     }
   }
