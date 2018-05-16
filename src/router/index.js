@@ -3,8 +3,11 @@ import Router from 'vue-router'
 
 import Home from '@/pages/Home'
 import Hello from '@/pages/Hello'
+
+// bilibili
 import Bilibili from '@/pages/Bilibili'
 import Bangumi from '@/pages/Bilibili/Bangumi'
+import UserVideo from '@/pages/Bilibili/UserVideo'
 
 Vue.use(Router)
 
@@ -26,6 +29,13 @@ export default new Router({
       component: Bangumi,
       meta: {
         title: '番剧'
+      }
+    },
+    {
+      path: '/bilibili/user-video/:uid?',
+      component: UserVideo,
+      meta: {
+        title: 'UP主投稿'
       }
     }
   ]
