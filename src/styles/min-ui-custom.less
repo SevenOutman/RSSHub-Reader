@@ -13,6 +13,38 @@
       display: none;
     }
   }
+
+  .mint-cell-title {
+    position: relative;
+    overflow: hidden;
+    overflow-y: visible;
+    text-overflow: ellipsis;
+    min-height: 24px;
+    line-height: 24px;
+
+    img {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      margin-top: -12px;
+    }
+
+    .mint-cell-text {
+      white-space: nowrap;
+    }
+
+    img + .mint-cell-text,
+    img ~ .mint-cell-label {
+      margin-left: 30px;
+      line-height: 16px;
+    }
+    .mint-cell-label {
+      margin-top: -2px;
+    }
+  }
+  .mint-cell-value {
+    flex-shrink: 0;
+  }
 }
 
 .mint-button--primary {

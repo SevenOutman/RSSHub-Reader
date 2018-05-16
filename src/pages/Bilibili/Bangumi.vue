@@ -4,7 +4,8 @@
       <h2>{{ result.title }}</h2>
       <!--<p>{{result.description.replace(' - 使用 RSSHub(https://github.com/DIYgod/RSSHub) 构建', '')}}</p>-->
       <div class="bangumi-episodes">
-        <a :href="episode.link" target="_blank" rel="noopener noreferrer" class="bangumi-episode" v-for="episode of result.items" :key="episode.guid"
+        <a :href="episode.link" target="_blank" rel="noopener noreferrer" class="bangumi-episode"
+           v-for="episode of result.items" :key="episode.guid"
            v-html="episode.content.replace(episode.contentSnippet, '') + episode.title">
         </a>
       </div>
@@ -38,7 +39,7 @@
         },
 
         result: null,
-        popupVisible: false
+        popupVisible: false,
       }
     },
     computed: {
@@ -50,7 +51,7 @@
       },
       isFavorite() {
         return !!this.$store.state.favorites.find(({ rss }) => rss === this.rssPath)
-      }
+      },
     },
     methods: {
       async fetchRSS() {
@@ -67,31 +68,33 @@
         if (!this.result) {
           await this.fetchRSS()
         }
-        title = `Bilibili番剧 ${this.result.title}`
+        title = this.result.title
         this.$store.commit('addFavorite', {
+          type: 'bilibili',
+          desc: '番剧',
           title,
           path: this.rssPath,
           rss: this.rssPath,
-          autoUpdate: true
+          autoUpdate: true,
         })
         Toast({
           message: '收藏好了~',
-          duration: 1500
+          duration: 1500,
         })
       },
       removeFromFavorites() {
         this.$store.commit('removeFavorite', this.rssPath)
         Toast({
           message: '已取消收藏',
-          duration: 1500
+          duration: 1500,
         })
-      }
+      },
     },
     created() {
       if (this.$route.params.seasonid) {
         this.fetchRSS()
       }
-    }
+    },
   }
 </script>
 
