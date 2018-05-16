@@ -15,7 +15,7 @@
         </a>
       </div>
     </template>
-    <cell-group title="查询UP主动态" v-if="!$route.params.uid">
+    <cell-group title="查询UP主收藏夹" v-if="!$route.params.uid">
       <mt-field label="用户ID" placeholder="可在UP主主页中找到" v-model="form.uid"></mt-field>
     </cell-group>
     <button-group>

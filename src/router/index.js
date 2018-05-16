@@ -11,6 +11,7 @@ import UserVideo from '@/pages/Bilibili/UserVideo'
 import UserActivity from '@/pages/Bilibili/UserActivity'
 import UserFav from '@/pages/Bilibili/UserFav'
 import UserCoin from '@/pages/Bilibili/UserCoin'
+import UserFollowers from '@/pages/Bilibili/UserFollowers'
 
 Vue.use(Router)
 
@@ -60,6 +61,13 @@ export default new Router({
       component: UserCoin,
       meta: {
         title: 'UP主投币视频'
+      }
+    },
+    {
+      path: '/bilibili/user-followers/:uid?',
+      component: UserFollowers,
+      meta: {
+        title: 'UP主粉丝'
       }
     }
   ],
