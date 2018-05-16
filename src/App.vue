@@ -20,7 +20,7 @@
     name: 'App',
     data() {
       return {
-        transitionName: ''
+        transitionName: '',
       }
     },
     watch: {
@@ -34,7 +34,7 @@
           this.transitionName = (toDepth >= fromDepth ? 'slide-left' : 'slide-right')
         }
       },
-    }
+    },
   }
 </script>
 
@@ -93,7 +93,8 @@
     .iphonex({ padding-bottom: constant(safe-area-inset-bottom); padding-bottom: env(safe-area-inset-bottom); });
 
     .container {
-      padding: 0 15px;
+      padding-left: 15px;
+      padding-right: 15px;
     }
 
     // router-view transition

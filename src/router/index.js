@@ -8,6 +8,7 @@ import Hello from '@/pages/Hello'
 import Bilibili from '@/pages/Bilibili'
 import Bangumi from '@/pages/Bilibili/Bangumi'
 import UserVideo from '@/pages/Bilibili/UserVideo'
+import UserActivity from '@/pages/Bilibili/UserActivity'
 
 Vue.use(Router)
 
@@ -36,6 +37,13 @@ export default new Router({
       component: UserVideo,
       meta: {
         title: 'UP主投稿'
+      }
+    },
+    {
+      path: '/bilibili/user-activity/:uid?',
+      component: UserActivity,
+      meta: {
+        title: 'UP主动态'
       }
     }
   ]
