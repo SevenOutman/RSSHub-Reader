@@ -1,5 +1,5 @@
 <template>
-  <div class="bilibili-user-video">
+  <div class="bilibili-user-followers">
     <template v-if="result">
       <div class="container">
         <h2>{{ result.title }}</h2>
@@ -31,7 +31,7 @@
   import parse from '@/utils/parseRss'
 
   export default {
-    name: 'UserVideo',
+    name: 'UserFollowers',
     components: { ButtonGroup, CellGroup },
     data() {
       return {
@@ -100,7 +100,7 @@
 </script>
 
 <style lang="less">
-  .bilibili-user-video {
+  .bilibili-user-followers {
     .user-followers {
       margin-bottom: 15px;
     }

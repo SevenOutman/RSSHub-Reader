@@ -7,7 +7,7 @@
       <mt-cell title="UP主收藏夹" is-link to="/bilibili/user-fav"/>
       <mt-cell title="UP主投币视频" is-link to="/bilibili/user-coin" />
       <mt-cell title="UP主粉丝" is-link to="/bilibili/user-followers"/>
-      <mt-cell title="UP主关注用户" is-link />
+      <mt-cell title="UP主关注用户" is-link to="/bilibili/user-followings"/>
       <mt-cell title="分区视频" is-link />
       <mt-cell title="视频评论" is-link />
       <mt-cell title="link公告" is-link />
