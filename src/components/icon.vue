@@ -14,7 +14,7 @@
     props: ['type'],
     computed: {
       src() {
-        return icons[this.type]
+        return icons[this.type] || 'http://via.placeholder.com/24x24'
       },
     },
   }
