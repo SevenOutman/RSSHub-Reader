@@ -9,6 +9,7 @@ import Bilibili from '@/pages/Bilibili'
 import Bangumi from '@/pages/Bilibili/Bangumi'
 import UserVideo from '@/pages/Bilibili/UserVideo'
 import UserActivity from '@/pages/Bilibili/UserActivity'
+import UserFav from '@/pages/Bilibili/UserFav'
 
 Vue.use(Router)
 
@@ -45,6 +46,13 @@ export default new Router({
       meta: {
         title: 'UP主动态'
       }
+    },
+    {
+      path: '/bilibili/user-fav/:uid?',
+      component: UserFav,
+      meta: {
+        title: 'UP主收藏夹'
+      }
     }
-  ]
+  ],
 })
