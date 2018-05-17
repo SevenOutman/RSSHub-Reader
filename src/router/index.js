@@ -13,6 +13,7 @@ import UserFav from '@/pages/Bilibili/UserFav'
 import UserCoin from '@/pages/Bilibili/UserCoin'
 import UserFollowers from '@/pages/Bilibili/UserFollowers'
 import UserFollowings from '@/pages/Bilibili/UserFollowings'
+import Partion from '@/pages/Bilibili/Partion'
 
 Vue.use(Router)
 
@@ -76,6 +77,13 @@ export default new Router({
       component: UserFollowings,
       meta: {
         title: 'UP主关注用户'
+      }
+    },
+    {
+      path: '/bilibili/partion/:tid?',
+      component: Partion,
+      meta: {
+        title: '分区视频'
       }
     }
   ],
