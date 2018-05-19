@@ -31,6 +31,7 @@ module.exports = merge(baseWebpackConfig, {
     // https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
       filename: 'index.html',
+      favicon: 'static/img/icons/favicon.ico',
       template: 'index.html',
       inject: true,
       serviceWorkerLoader: `<script>${fs.readFileSync(path.join(__dirname,
