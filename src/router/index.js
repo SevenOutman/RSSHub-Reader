@@ -14,6 +14,7 @@ import UserCoin from '@/pages/Bilibili/UserCoin'
 import UserFollowers from '@/pages/Bilibili/UserFollowers'
 import UserFollowings from '@/pages/Bilibili/UserFollowings'
 import Partion from '@/pages/Bilibili/Partion'
+import VideoComments from '@/pages/Bilibili/VideoComments'
 
 Vue.use(Router)
 
@@ -84,6 +85,13 @@ export default new Router({
       component: Partion,
       meta: {
         title: '分区视频'
+      }
+    },
+    {
+      path: '/bilibili/video-comments/:aid?',
+      component: VideoComments,
+      meta: {
+        title: '视频评论'
       }
     }
   ],
