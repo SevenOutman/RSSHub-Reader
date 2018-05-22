@@ -1,6 +1,6 @@
-# rsshub-reader
+# RSSHub Reader
 
-> Reader for RSSHub
+> Reader for [RSSHub](https://rsshub.js.org)
 
 ## Build Setup
 
