@@ -17,6 +17,10 @@ import Partion from '@/pages/Bilibili/Partion'
 import VideoComments from '@/pages/Bilibili/VideoComments'
 import LiveRoom from '@/pages/Bilibili/LiveRoom'
 
+// weibo
+import Weibo from '@/pages/Weibo'
+import WeiboUser from '@/pages/Weibo/User'
+
 Vue.use(Router)
 
 export default new Router({
@@ -101,6 +105,21 @@ export default new Router({
       meta: {
         title: '直播开播'
       }
-    }
+    },
+
+    {
+      path: '/weibo',
+      component: Weibo,
+      meta: {
+        title: '微博'
+      }
+    },
+    {
+      path: '/weibo/user/:uid?',
+      component: WeiboUser,
+      meta: {
+        title: '博主'
+      }
+    },
   ],
 })

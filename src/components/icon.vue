@@ -4,9 +4,11 @@
 
 <script>
   import bilibili from '@/assets/bilibili.ico'
+  import weibo from '@/assets/weibo.ico'
 
   const icons = {
     bilibili,
+    weibo
   }
 
   export default {
