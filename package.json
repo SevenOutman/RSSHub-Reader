@@ -8,7 +8,9 @@
     "dev": "node build/dev-server.js",
     "start": "node build/dev-server.js",
     "build": "node build/build.js",
-    "lint": "eslint --ext .js,.vue src"
+    "lint": "eslint --ext .js,.vue src",
+    "test": "yarn run lint",
+    "predeploy": "yarn run build && echo 'rsshub-reader.js.org' > dist/CNAME"
   },
   "dependencies": {
     "axios": "^0.18.0",
