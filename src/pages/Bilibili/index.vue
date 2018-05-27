@@ -10,10 +10,10 @@
       <mt-cell title="UP主关注用户" is-link to="/bilibili/user-followings" />
       <mt-cell title="分区视频" is-link to="/bilibili/partion" />
       <mt-cell title="视频评论" is-link to="/bilibili/video-comments" />
-      <mt-cell title="link公告" is-link />
-      <mt-cell title="直播开播" is-link />
-      <mt-cell title="直播搜索" is-link />
-      <mt-cell title="直播分区" is-link />
+      <mt-cell title="link公告" is-link>正在接入</mt-cell>
+      <mt-cell title="直播开播" is-link>正在接入</mt-cell>
+      <mt-cell title="直播搜索" is-link>正在接入</mt-cell>
+      <mt-cell title="直播分区" is-link>正在接入</mt-cell>
     </cell-group>
   </div>
 </template>
