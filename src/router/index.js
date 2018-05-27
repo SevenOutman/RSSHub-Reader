@@ -15,6 +15,7 @@ import UserFollowers from '@/pages/Bilibili/UserFollowers'
 import UserFollowings from '@/pages/Bilibili/UserFollowings'
 import Partion from '@/pages/Bilibili/Partion'
 import VideoComments from '@/pages/Bilibili/VideoComments'
+import LiveRoom from '@/pages/Bilibili/LiveRoom'
 
 Vue.use(Router)
 
@@ -92,6 +93,13 @@ export default new Router({
       component: VideoComments,
       meta: {
         title: '视频评论'
+      }
+    },
+    {
+      path: '/bilibili/live-room/:roomID?',
+      component: LiveRoom,
+      meta: {
+        title: '直播开播'
       }
     }
   ],
