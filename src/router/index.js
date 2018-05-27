@@ -20,6 +20,7 @@ import LiveRoom from '@/pages/Bilibili/LiveRoom'
 // weibo
 import Weibo from '@/pages/Weibo'
 import WeiboUser from '@/pages/Weibo/User'
+import WeiboKeyword from '@/pages/Weibo/Keyword'
 
 Vue.use(Router)
 
@@ -119,6 +120,13 @@ export default new Router({
       component: WeiboUser,
       meta: {
         title: '博主'
+      }
+    },
+    {
+      path: '/weibo/keyword/:keyword?',
+      component: WeiboKeyword,
+      meta: {
+        title: '关键词'
       }
     },
   ],

@@ -2,7 +2,7 @@
   <div class="weibo">
     <cell-group title="全部">
       <mt-cell title="博主" is-link to="/weibo/user" />
-      <mt-cell title="关键词" is-link >正在接入</mt-cell>
+      <mt-cell title="关键词" is-link to="/weibo/keyword" />
     </cell-group>
   </div>
 </template>
