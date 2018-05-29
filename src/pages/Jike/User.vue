@@ -1,8 +1,8 @@
 <template>
-  <div class="jike-topic">
+  <div class="jike-user">
     <template v-if="result">
       <div class="container">
-        <h2>{{ result.title }} <small><a :href="result.link" target="_blank" rel="noopener noreferrer" >前往主题>></a></small></h2>
+        <h2>{{ result.title }} <small><a :href="result.link" target="_blank" rel="noopener noreferrer" >前往用户主页>></a></small></h2>
         <!--<p>{{result.description.replace(' - 使用 RSSHub(https://github.com/DIYgod/RSSHub) 构建', '')}}</p>-->
       </div>
       <div class="user-activities container">
@@ -14,8 +14,8 @@
         </a>
       </div>
     </template>
-    <cell-group title="查询主题" v-if="!$route.params.id">
-      <mt-field label="主题ID" placeholder="可在主题页URL中找到" v-model="form.id"></mt-field>
+    <cell-group title="查询用户动态" v-if="!$route.params.id">
+      <mt-field label="用户ID" placeholder="可在用户页URL中找到" v-model="form.id"></mt-field>
     </cell-group>
     <button-group>
       <mt-button type="default" size="large" @click="fetchRSS" :disabled="!id">立即查询</mt-button>
@@ -36,7 +36,7 @@
   const today = new Date()
 
   export default {
-    name: 'Topic',
+    name: 'User',
     components: { ButtonGroup, CellGroup },
     data() {
       return {
@@ -53,7 +53,7 @@
         return this.$route.params.id || this.form.id
       },
       rssPath() {
-        return `/jike/topic/${this.id}`
+        return `/jike/user/${this.id}`
       },
       isFavorite() {
         return !!this.$store.state.favorites.find(({ rss }) => rss === this.rssPath)
@@ -83,12 +83,12 @@
         if (!this.result) {
           await this.fetchRSS()
         }
-        title = this.result.title.replace(' - 即刻主题精选', '')
+        title = this.result.title.replace('的即刻动态', '')
         this.$store.commit('addFavorite', {
           type: 'jike',
-          desc: '主题',
+          desc: '用户动态',
           title,
-          path: `/jike/topic/${this.id}`,
+          path: `/jike/user/${this.id}`,
           rss: this.rssPath,
           autoUpdate: true,
         })
@@ -114,7 +114,7 @@
 </script>
 
 <style lang="less">
-  .jike-topic {
+  .jike-user {
     .user-activities {
       padding: 10px;
       margin-bottom: 15px;

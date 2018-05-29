@@ -25,6 +25,7 @@ import WeiboKeyword from '@/pages/Weibo/Keyword'
 // jike
 import Jike from '@/pages/Jike'
 import JikeTopic from '@/pages/Jike/Topic'
+import JikeUser from '@/pages/Jike/User'
 
 Vue.use(Router)
 
@@ -145,6 +146,13 @@ export default new Router({
       component: JikeTopic,
       meta: {
         title: '主题'
+      }
+    },
+    {
+      path: '/jike/user/:id?',
+      component: JikeUser,
+      meta: {
+        title: '用户动态'
       }
     },
   ],
