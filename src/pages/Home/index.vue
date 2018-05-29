@@ -19,7 +19,7 @@
       <mt-cell title="微博" is-link to="/weibo">
         <icon slot="icon" type="weibo" width="24" height="24" />
       </mt-cell>
-      <mt-cell title="即刻">正在接入
+      <mt-cell title="即刻" is-link to="/jike">
         <icon slot="icon" type="jike" width="24" height="24" />
       </mt-cell>
       <mt-cell title="网易云音乐">正在接入

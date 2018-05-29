@@ -22,6 +22,10 @@ import Weibo from '@/pages/Weibo'
 import WeiboUser from '@/pages/Weibo/User'
 import WeiboKeyword from '@/pages/Weibo/Keyword'
 
+// jike
+import Jike from '@/pages/Jike'
+import JikeTopic from '@/pages/Jike/Topic'
+
 Vue.use(Router)
 
 export default new Router({
@@ -127,6 +131,20 @@ export default new Router({
       component: WeiboKeyword,
       meta: {
         title: '关键词'
+      }
+    },
+    {
+      path: '/jike',
+      component: Jike,
+      meta: {
+        title: '即刻'
+      }
+    },
+    {
+      path: '/jike/topic/:id?',
+      component: JikeTopic,
+      meta: {
+        title: '主题'
       }
     },
   ],

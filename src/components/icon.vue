@@ -5,10 +5,12 @@
 <script>
   import bilibili from '@/assets/bilibili.ico'
   import weibo from '@/assets/weibo.ico'
+  import jike from '@/assets/jike.ico'
 
   const icons = {
     bilibili,
-    weibo
+    weibo,
+    jike
   }
 
   export default {
