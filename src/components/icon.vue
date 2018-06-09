@@ -4,11 +4,13 @@
 
 <script>
   import bilibili from '@/assets/bilibili.ico'
+  import bangumi from '@/assets/bangumi.ico'
   import weibo from '@/assets/weibo.ico'
   import jike from '@/assets/jike.ico'
 
   const icons = {
     bilibili,
+    bangumi,
     weibo,
     jike
   }

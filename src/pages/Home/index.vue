@@ -16,6 +16,9 @@
       <mt-cell title="Bilibili" is-link to="/bilibili">
         <icon slot="icon" type="bilibili" width="24" height="24" />
       </mt-cell>
+      <mt-cell title="Bangumi" is-link to="/bangumi">
+        <icon slot="icon" type="bangumi" width="24" height="24" />
+      </mt-cell>
       <mt-cell title="微博" is-link to="/weibo">
         <icon slot="icon" type="weibo" width="24" height="24" />
       </mt-cell>

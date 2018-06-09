@@ -5175,6 +5175,20 @@ rss-parser@^3.1.2:
     entities "^1.1.1"
     xml2js "^0.4.17"
 
+rss-parser@^3.1.3:
+  version "3.1.3"
+  resolved "https://registry.npmjs.org/rss-parser/-/rss-parser-3.1.3.tgz#ad56491623d66ccce2f4f5c833377542c0f0c4f5"
+  dependencies:
+    entities "^1.1.1"
+    xml2js "^0.4.17"
+
+rsshub.js@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.npmjs.org/rsshub.js/-/rsshub.js-0.1.0.tgz#7eeee37120bd6ff7bade048b4a328eb0684e1b79"
+  dependencies:
+    axios "^0.18.0"
+    rss-parser "^3.1.3"
+
 run-async@^2.2.0:
   version "2.3.0"
   resolved "http://registry.npm.taobao.org/run-async/download/run-async-2.3.0.tgz#0371ab4ae0bdd720d4166d7dfda64ff7a445a6c0"

@@ -6,7 +6,7 @@ import Hello from '@/pages/Hello'
 
 // bilibili
 import Bilibili from '@/pages/Bilibili'
-import Bangumi from '@/pages/Bilibili/Bangumi'
+import BilibiliBangumi from '@/pages/Bilibili/Bangumi'
 import UserVideo from '@/pages/Bilibili/UserVideo'
 import UserActivity from '@/pages/Bilibili/UserActivity'
 import UserFav from '@/pages/Bilibili/UserFav'
@@ -16,6 +16,10 @@ import UserFollowings from '@/pages/Bilibili/UserFollowings'
 import Partion from '@/pages/Bilibili/Partion'
 import VideoComments from '@/pages/Bilibili/VideoComments'
 import LiveRoom from '@/pages/Bilibili/LiveRoom'
+
+// bangumi
+import Bangumi from '@/pages/Bangumi'
+import BangumiCalendarToday from '@/pages/Bangumi/CalendarToday'
 
 // weibo
 import Weibo from '@/pages/Weibo'
@@ -44,7 +48,7 @@ export default new Router({
     },
     {
       path: '/bilibili/bangumi/:seasonid?',
-      component: Bangumi,
+      component: BilibiliBangumi,
       meta: {
         title: '番剧'
       }
@@ -113,6 +117,20 @@ export default new Router({
       }
     },
 
+    {
+      path: '/bangumi',
+      component: Bangumi,
+      meta: {
+        title: 'Bangumi'
+      }
+    },
+    {
+      path: '/bangumi/calendar-today',
+      component: BangumiCalendarToday,
+      meta: {
+        title: '放送列表'
+      }
+    },
     {
       path: '/weibo',
       component: Weibo,

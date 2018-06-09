@@ -1,5 +1,5 @@
 <template>
-  <div class="bilibili-user-video">
+  <div class="bangumi-calendar-today">
     <div class="container" v-if="result">
       <h2>{{ result.title }}</h2>
       <!--<p>{{result.description.replace(' - 使用 RSSHub(https://github.com/DIYgod/RSSHub) 构建', '')}}</p>-->
@@ -12,14 +12,10 @@
         </a>
       </div>
     </div>
-    <cell-group title="查询UP主投稿" v-if="!$route.params.uid">
-      <mt-field label="用户ID" placeholder="可在UP主主页中找到" v-model="form.uid"></mt-field>
-    </cell-group>
     <button-group>
-      <mt-button type="default" size="large" @click="fetchRSS" :disabled="!uid">立即查询</mt-button>
-      <mt-button type="primary" size="large" v-if="!isFavorite" :disabled="!uid" @click="addToFavorites">加入收藏
-      </mt-button>
-      <mt-button type="danger" size="large" v-else :disabled="!uid" @click="removeFromFavorites">取消收藏</mt-button>
+      <mt-button type="default" size="large" @click="fetchRSS">立即查询</mt-button>
+      <mt-button type="primary" size="large" v-if="!isFavorite" @click="addToFavorites">加入收藏</mt-button>
+      <mt-button type="danger" size="large" v-else @click="removeFromFavorites">取消收藏</mt-button>
     </button-group>
   </div>
 </template>
@@ -33,7 +29,7 @@
   import feeds from 'rsshub.js/feeds'
 
   export default {
-    name: 'UserVideo',
+    name: 'CalendarToday',
     components: { ButtonGroup, CellGroup },
     data() {
       return {
@@ -50,7 +46,7 @@
         return this.$route.params.uid || this.form.uid
       },
       rssPath() {
-        return `/bilibili/user/video/${this.uid}`
+        return `/bangumi/calendar/today`
       },
       isFavorite() {
         return !!this.$store.state.favorites.find(({ rss }) => rss === this.rssPath)
@@ -59,7 +55,7 @@
     methods: {
       async fetchRSS() {
         Indicator.open()
-        return feeds.bilibili.user_video({ uid: this.uid })
+        return feeds.bangumi.calendar_today()
           .rss2()
           .catch(() => Indicator.close())
           .then(async (data) => {
@@ -72,12 +68,12 @@
         if (!this.result) {
           await this.fetchRSS()
         }
-        title = this.result.title.replace(' 的 bilibili 空间', '')
+        title = this.result.title.replace('bangumi ', '')
         this.$store.commit('addFavorite', {
-          type: 'bilibili',
-          desc: 'UP主投稿',
+          type: 'bangumi',
+          desc: this.$route.meta.title,
           title,
-          path: `/bilibili/user-video/${this.uid}`,
+          path: `/bangumi/calendar-today`,
           rss: this.rssPath,
           autoUpdate: true,
         })
@@ -95,15 +91,13 @@
       },
     },
     created() {
-      if (this.$route.params.uid) {
-        this.fetchRSS()
-      }
+      this.fetchRSS()
     },
   }
 </script>
 
 <style lang="less">
-  .bilibili-user-video {
+  .bangumi-calendar-today {
     .user-videos {
       margin-bottom: 15px;
 
