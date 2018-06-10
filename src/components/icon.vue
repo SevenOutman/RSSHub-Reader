@@ -8,13 +8,15 @@
   import weibo from '@/assets/weibo.ico'
   import tieba from '@/assets/tieba.ico'
   import jike from '@/assets/jike.ico'
+  import juejin from '@/assets/juejin.ico'
 
   const icons = {
     bilibili,
     bangumi,
     weibo,
     tieba,
-    jike
+    jike,
+    juejin
   }
 
   export default {

@@ -28,6 +28,7 @@ import WeiboKeyword from '@/pages/Weibo/Keyword'
 
 import Tieba from '@/pages/Tieba/routes'
 import Jike from '@/pages/Jike/routes'
+import Juejin from '@/pages/Juejin/routes'
 
 Vue.use(Router)
 
@@ -151,7 +152,8 @@ const router = new Router({
       }
     },
     ...Tieba,
-    ...Jike
+    ...Jike,
+    ...Juejin
   ],
 })
 
