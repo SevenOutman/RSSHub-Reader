@@ -1,10 +1,9 @@
 <template>
   <div>
     <div class="result" v-if="result">
-      <div class="container">
+      <div class="result-header">
         <h2>{{ result.title }}</h2>
       </div>
-      <!--<p>{{result.description.replace(' - 使用 RSSHub(https://github.com/DIYgod/RSSHub) 构建', '')}}</p>-->
       <div class="result-items">
         <a
           class="result-item"
@@ -23,6 +22,7 @@
     <cell-group title="查询分类" v-if="!$route.params.category">
       <mt-field label="分类" placeholder="选择分类" v-model="categoryName"
                 readonly
+                @focus.native.prevent
                 @click.native.prevent.stop="popupVisible = true" disable-clear></mt-field>
     </cell-group>
     <button-group>

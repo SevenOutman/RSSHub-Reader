@@ -2,7 +2,6 @@
   <div class="bilibili-partion">
     <div class="container" v-if="result">
       <h2>{{ result.title }}</h2>
-      <!--<p>{{result.description.replace(' - 使用 RSSHub(https://github.com/DIYgod/RSSHub) 构建', '')}}</p>-->
       <div class="user-videos">
         <a :href="video.link" target="_blank" rel="noopener noreferrer" class="user-video"
            v-for="video of result.items" :key="video.guid">
@@ -14,6 +13,7 @@
     </div>
     <cell-group title="查询分区视频" v-if="!$route.params.tid">
       <mt-field label="分区" placeholder="点击选择" v-model="partionName"
+                @focus.native.prevent
                 @click.native.prevent.stop="popupVisible = true" disable-clear></mt-field>
     </cell-group>
     <button-group>
