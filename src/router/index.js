@@ -26,17 +26,12 @@ import Weibo from '@/pages/Weibo'
 import WeiboUser from '@/pages/Weibo/User'
 import WeiboKeyword from '@/pages/Weibo/Keyword'
 
-// tieba
 import Tieba from '@/pages/Tieba/routes'
-
-// jike
-import Jike from '@/pages/Jike'
-import JikeTopic from '@/pages/Jike/Topic'
-import JikeUser from '@/pages/Jike/User'
+import Jike from '@/pages/Jike/routes'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: '/',
@@ -156,26 +151,17 @@ export default new Router({
       }
     },
     ...Tieba,
-    {
-      path: '/jike',
-      component: Jike,
-      meta: {
-        title: '即刻'
-      }
-    },
-    {
-      path: '/jike/topic/:id?',
-      component: JikeTopic,
-      meta: {
-        title: '主题'
-      }
-    },
-    {
-      path: '/jike/user/:id?',
-      component: JikeUser,
-      meta: {
-        title: '用户动态'
-      }
-    },
+    ...Jike
   ],
 })
+
+router.beforeEach((to, from, next) => {
+  if (to.meta && to.meta.title) {
+    document.title = to.meta.title
+  } else {
+    document.title = 'RSSHub Reader'
+  }
+  next()
+})
+
+export default router
