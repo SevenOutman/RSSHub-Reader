@@ -4,6 +4,7 @@ import Vue from 'vue'
 import Mint from 'mint-ui'
 import 'mint-ui/lib/style.css'
 import axios from 'axios'
+import moment from 'moment'
 import iNoBounce from 'inobounce'
 import App from './App'
 import router from './router'
@@ -16,6 +17,18 @@ Vue.use(Mint)
 
 axios.defaults.baseURL = 'https://rsshub.app'
 axios.defaults.headers.common.Accept = 'application/xml'
+
+const now = moment()
+Vue.filter('time', (isoTime) => {
+  let time = moment(isoTime)
+  if (time.isSame(now, 'day')) {
+    return time.format('HH:mm')
+  }
+  if (time.isSame(now, 'year')) {
+    return time.format('MM-DD')
+  }
+  return time.format('YYYY-MM-DD')
+})
 
 /* eslint-disable no-new */
 new Vue({

@@ -6,12 +6,14 @@
   import bilibili from '@/assets/bilibili.ico'
   import bangumi from '@/assets/bangumi.ico'
   import weibo from '@/assets/weibo.ico'
+  import tieba from '@/assets/tieba.ico'
   import jike from '@/assets/jike.ico'
 
   const icons = {
     bilibili,
     bangumi,
     weibo,
+    tieba,
     jike
   }
 

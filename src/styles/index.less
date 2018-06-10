@@ -13,3 +13,42 @@ html {
   .iphonex({ height: 812px !important; width: 375px !important; })
 }
 
+.result {
+  .result-items {
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: rgb(244, 245, 247);
+
+    .result-item {
+      padding: 10px;
+      background-color: #fff;
+      border-radius: 4px;
+      display: block;
+      &:not(:last-child) {
+        margin-bottom: 10px;
+      }
+
+      .result-item-time {
+        opacity: 0.5;
+        font-size: 14px;
+        margin-bottom: 1em;
+      }
+
+      .result-item-content {
+        img {
+          display: block;
+          max-width: 100%;
+          border-radius: 4px;
+
+          &:not(:last-child) {
+            margin-bottom: 1em;
+          }
+        }
+      }
+      .result-item-desc {
+        font-size: 14px;
+        margin-top: 1em;
+      }
+    }
+  }
+}

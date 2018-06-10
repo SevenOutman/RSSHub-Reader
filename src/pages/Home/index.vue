@@ -22,6 +22,9 @@
       <mt-cell title="微博" is-link to="/weibo">
         <icon slot="icon" type="weibo" width="24" height="24" />
       </mt-cell>
+      <mt-cell title="贴吧" is-link to="/tieba">
+        <icon slot="icon" type="tieba" width="24" height="24" />
+      </mt-cell>
       <mt-cell title="即刻" is-link to="/jike">
         <icon slot="icon" type="jike" width="24" height="24" />
       </mt-cell>
