@@ -17,11 +17,13 @@
           <div class="result-item-time">{{ post.time | time }}</div>
           <div class="result-item-title" v-html="post.title"></div>
           <div class="result-item-content" v-html="post.content"></div>
+          <div class="result-item-desc" v-html="post.author"></div>
         </a>
       </div>
     </div>
-    <cell-group title="查询帖子列表" v-if="!$route.params.kw">
+    <cell-group title="查询精品帖子" v-if="!$route.params.kw">
       <mt-field label="吧名" placeholder="贴吧全名" v-model="form.kw"></mt-field>
+      <mt-field label="精品分类ID" placeholder="默认查询全部分类" v-model="form.cid"></mt-field>
     </cell-group>
     <button-group>
       <mt-button type="default" size="large" @click="fetchRSS">立即查询</mt-button>
@@ -46,6 +48,7 @@
       return {
         form: {
           kw: this.$route.params.kw || '',
+          cid: this.$route.params.cid || '',
         },
 
         result: null,
@@ -56,8 +59,11 @@
       kw() {
         return this.$route.params.kw || this.form.kw
       },
+      cid() {
+        return this.$route.params.cid || this.form.cid
+      },
       rssPath() {
-        return `/tieba/forum/today`
+        return `/tieba/forum/good/${this.kw}/${this.cid}`
       },
       isFavorite() {
         return !!this.$store.state.favorites.find(({ rss }) => rss === this.rssPath)
@@ -103,7 +109,7 @@
           type: 'tieba',
           desc: this.$route.meta.title,
           title: this.result.title,
-          path: `/tieba/forum/${this.kw}`,
+          path: `/tieba/forum-good/${this.kw}/${this.cid}`,
           rss: this.rssPath,
           autoUpdate: true,
         })
@@ -133,6 +139,11 @@
     .result-item-content {
       p:last-child {
         margin-bottom: 0;
+      }
+    }
+    .result-item-desc {
+      p {
+        margin: 0;
       }
     }
   }

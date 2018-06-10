@@ -27,8 +27,7 @@ import WeiboUser from '@/pages/Weibo/User'
 import WeiboKeyword from '@/pages/Weibo/Keyword'
 
 // tieba
-import Tieba from '@/pages/Tieba'
-import TiebaForum from '@/pages/Tieba/Forum'
+import Tieba from '@/pages/Tieba/routes'
 
 // jike
 import Jike from '@/pages/Jike'
@@ -156,20 +155,7 @@ export default new Router({
         title: '关键词'
       }
     },
-    {
-      path: '/tieba',
-      component: Tieba,
-      meta: {
-        title: '贴吧'
-      }
-    },
-    {
-      path: '/tieba/forum/:kw?',
-      component: TiebaForum,
-      meta: {
-        title: '帖子列表'
-      }
-    },
+    ...Tieba,
     {
       path: '/jike',
       component: Jike,
