@@ -8,6 +8,7 @@
   import weibo from '@/assets/weibo.ico'
   import tieba from '@/assets/tieba.ico'
   import jike from '@/assets/jike.ico'
+  import ncm from '@/assets/ncm.ico'
   import juejin from '@/assets/juejin.ico'
 
   const icons = {
@@ -16,6 +17,7 @@
     weibo,
     tieba,
     jike,
+    ncm,
     juejin
   }
 

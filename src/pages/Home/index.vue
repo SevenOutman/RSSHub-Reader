@@ -28,11 +28,11 @@
       <mt-cell title="即刻" is-link to="/jike">
         <icon slot="icon" type="jike" width="24" height="24" />
       </mt-cell>
+      <mt-cell title="网易云音乐" is-link to="/ncm">
+        <icon slot="icon" type="ncm" width="24" height="24" />
+      </mt-cell>
       <mt-cell title="掘金" is-link to="/juejin">
         <icon slot="icon" type="juejin" width="24" height="24" />
-      </mt-cell>
-      <mt-cell title="网易云音乐">正在接入
-        <icon slot="icon" type="ncm" width="24" height="24" />
       </mt-cell>
       <mt-cell title="简书">正在接入
         <icon slot="icon" type="jianshu" width="24" height="24" />
